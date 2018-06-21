@@ -22,20 +22,41 @@ $(document).ready(function(){
         // $("#meatChoiceInput").val("");
         
         var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
+        
         $.ajax({
-            url: queryURL,
-            headers: {
-                "Access-Control-Allow-Origin":'*',
-                "Access-Control-Allow-Methods": 'HEAD, GET, POST, PUT, PATCH, DELETE',
-                "Access-Control-Allow-Headers": 'Origin, Content-Type, X-Auth-Token',
-                'Content-Type':'application/json',
-                
-                 },
-            method: "GET"
-        }).then(function(response) {
-            console.log("This is our response"+ response);
-        })
-    
+            method: 'GET',
+            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q=chicken'
+          }).then(function(data) {
+            console.log(data);
+          });
+        
+        
+        // $.ajax({
+        //     url: queryURL,
+           
+        //     method: "GET"
+        // }).then(function(response) {
+        //     console.log("This is our response"+ response);
+        // })
+
+        
+        $("#wineButton").on("click", function(event){
+            event.preventDefault();
+            console.log("We got clicked");
+            var winePair=$(this).text();
+            
+            console.log(winePair);
+
+            var queryURL= "http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30" +winePair;
+            
+           
+            $.ajax({
+                method: 'GET',
+                url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30'
+              }).then(function(data) {
+                console.log(data);
+              });
+            })
         
     })
 });
