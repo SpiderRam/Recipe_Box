@@ -27,7 +27,7 @@ $(document).ready(function(){
         
         $.ajax({
             method: 'GET',
-            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q=chicken'
+            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q=' + meatChoice
           }).then(function(data) {
             console.log(data);
             recipeResults = data;
