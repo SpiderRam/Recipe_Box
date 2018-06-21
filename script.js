@@ -23,7 +23,7 @@ $(document).ready(function(){
         
         // $("#meatChoiceInput").val("");
         
-        var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
+        
         
         $.ajax({
             method: 'GET',
@@ -32,7 +32,7 @@ $(document).ready(function(){
             console.log(data);
             recipeResults = data;
             var showRecipes = function() {
-              for (var i = 0; i <= recipeResults[9]; i++) {
+              for (var i = 0; i <= recipeResults[8]; i++) {
                 var recipeResult = recipeResults[i];
                 $(".card-img-top").attr("src=" + recipeResult.recipes.image_url);
                 $(".card-title").text(recipeResult.recipes.title);
@@ -66,7 +66,5 @@ $(document).ready(function(){
 //Notes for moving forward:  
 
 //Should the wine button be in the same function with the recipe button?  It might be better to have it in its own click event, since it happens after the recipes are returned and dsiplayed, and the user chooses a recipe.
-
-//Since the var queryUrl was not used (line 26), can it be deleted? 
 
 //Lines 33-42 are meant to populate the cards in the deck with image, title, and link to page.  It's not working. Either the format of the API response is the problem (it looks odd), or my JQuery is bad.
