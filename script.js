@@ -1,7 +1,9 @@
-
-//which order does the api's and firebase go in?
 console.log("page loaded");
 // var recipeData=firebase.database();
+
+var recipeResults;
+var wineResults;
+
 $(document).ready(function(){
 
     
@@ -29,16 +31,8 @@ $(document).ready(function(){
           }).then(function(data) {
             console.log(data);
           });
-        
-        
-        // $.ajax({
-        //     url: queryURL,
-           
-        //     method: "GET"
-        // }).then(function(response) {
-        //     console.log("This is our response"+ response);
-        // })
 
+          
         
         $("#wineButton").on("click", function(event){
             event.preventDefault();
@@ -46,17 +40,16 @@ $(document).ready(function(){
             var winePair=$(this).text();
             
             console.log(winePair);
-
-            var queryURL= "http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30" +winePair;
-            
            
             $.ajax({
                 method: 'GET',
-                url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30'
+                url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=5'
               }).then(function(data) {
                 console.log(data);
               });
             })
         
     })
+
 });
+
