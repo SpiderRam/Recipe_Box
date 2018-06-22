@@ -1,7 +1,9 @@
-
-//which order does the api's and firebase go in?
 console.log("page loaded");
-// var recipeData=firebase.database();
+// var recipedata=firebase.database();
+
+var recipeResults;
+var wineResults;
+
 $(document).ready(function(){
 
     
@@ -17,28 +19,30 @@ $(document).ready(function(){
             
         // }
         
-        // recipeData.ref().push(pickedRecipe);
+        // recipedata.ref().push(pickedRecipe);
         
         // $("#meatChoiceInput").val("");
         
-        var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
+        
         
         $.ajax({
             method: 'GET',
-            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q=chicken'
+            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q=' + meatChoice
           }).then(function(data) {
             console.log(data);
+            recipeResults = data;
+            var showRecipes = function() {
+              for (var i = 0; i <= recipeResults[8]; i++) {
+                var recipeResult = recipeResults[i];
+                $(".card-img-top").attr("src=" + recipeResult.recipes.image_url);
+                $(".card-title").text(recipeResult.recipes.title);
+                $(".card-text").text("Source: " + recipeResult.recipes.publisher + "<br> <br> <a src='" + recipeResult.recipes.f2f_url + "'>Read it here!</a>");
+              }
+            }
+            showRecipes();  
           });
-        
-        
-        // $.ajax({
-        //     url: queryURL,
-           
-        //     method: "GET"
-        // }).then(function(response) {
-        //     console.log("This is our response"+ response);
-        // })
 
+        
         
         $("#wineButton").on("click", function(event){
             event.preventDefault();
@@ -46,17 +50,21 @@ $(document).ready(function(){
             var winePair=$(this).text();
             
             console.log(winePair);
-
-            var queryURL= "http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30" +winePair;
-            
            
             $.ajax({
                 method: 'GET',
-                url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30'
+                url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=5'
               }).then(function(data) {
                 console.log(data);
               });
             })
         
     })
+
 });
+
+//Notes for moving forward:  
+
+//Should the wine button be in the same function with the recipe button?  It might be better to have it in its own click event, since it happens after the recipes are returned and dsiplayed, and the user chooses a recipe.
+
+//Lines 33-42 are meant to populate the cards in the deck with image, title, and link to page.  It's not working. Either the format of the API response is the problem (it looks odd), or my JQuery is bad.
