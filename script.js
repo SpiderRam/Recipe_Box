@@ -25,10 +25,26 @@ $(document).ready(function(){
         
 
         var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
+        // set wine color based on meat choice
+        if (meatChoice == "Pork") {
+          var wineColor = "amber";
+        }
+        if(meatChoice=="Tofu"){
+          var WineColor="clear";
+        }
+        if (meatChoice == "Beef"){
+          var wineColor = "red";
+        }
+        if(meatChoice == "Chicken"){
+          var wineColor = "white";
+        }
+        if(meatChoice == "Fish"){
+          var wineColor = "rose";
+        }
 
         $.ajax({
           method: 'GET',
-          url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&t='
+          url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&color=' + wineColor
         }).then(function(data) {
           var cleanData = JSON.parse(data);
           console.log("wineData",cleanData);
