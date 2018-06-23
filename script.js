@@ -63,6 +63,7 @@ $(document).ready(function(){
               // myImage.attr("src",cleanData.recipes[i].f2f_url)
               myImage.attr("class","recipePictures")
               h1.text(cleanData.recipes[i].title)
+              h1.
               $("#recipes").append(h1);
               $("#recipes").append(myImage);
             }
