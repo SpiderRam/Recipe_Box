@@ -1,5 +1,8 @@
 body {
-
     background-color: aquamarine;
-    
+}
+
+.recipePictures{
+    width: 100px;
+    height:100px;
 }
