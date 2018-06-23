@@ -25,10 +25,17 @@ body {
     width:900px;
     margin: auto;
     font-size: 14px;
+    
 
 }
 
 #btn btn-danger {
     color: cadetblue;
+    
+
+}
+
+a {
+    display: block;
 
 }
