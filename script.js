@@ -44,7 +44,7 @@ $(document).ready(function(){
 
         $.ajax({
           method: 'GET',
-          url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&color=' + wineColor
+          url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&n=30&color=' + wineColor
         }).then(function(data) {
           var cleanData = JSON.parse(data);
           console.log("wineData",cleanData);
@@ -56,14 +56,16 @@ $(document).ready(function(){
             var cleanData = JSON.parse(data);
             console.log("recipesdata",cleanData);
             for(var i=0; i < cleanData.recipes.length; i++ ){
-              console.log("singledude",cleanData.recipes[i]);
+              console.log("Individual Recipe",cleanData.recipes[i]);
               var h1 = $("<h1>")
               var myImage = $("<img>")
               myImage.attr("src",cleanData.recipes[i].image_url)
               // myImage.attr("src",cleanData.recipes[i].f2f_url)
               myImage.attr("class","recipePictures")
               h1.text(cleanData.recipes[i].title)
-              h1.
+
+              h1.attr("src",cleanData.recipes[i].f2f_url)
+
               $("#recipes").append(h1);
               $("#recipes").append(myImage);
             }
