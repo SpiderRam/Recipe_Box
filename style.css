@@ -1,5 +1,8 @@
 body {
-
     background-image: url("vineyard.jpeg");
-    
+}
+
+.recipePictures{
+    width: 100px;
+    height:100px;
 }

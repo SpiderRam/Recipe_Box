@@ -2,18 +2,15 @@
 <html lang="en">
     <link rel="stylesheet" href="style.css">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Recipe Box</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    
-
+    <link rel="stylesheet" href="style.css">
   <!-- Style to fix the issue of text extending past panel length -->
   <style>
     .card-body a {
@@ -31,7 +28,6 @@
     <!-- Jumbotron for Title -->
     <div class="jumbotron" style="background-color: white; color:grey;">
       <h1 class="text-center">
-        
           <img src="logo4-01.png"  height="50" width="700">
           <div></div>
           <img src="space-03.png"  height="10" width="400">
@@ -44,14 +40,18 @@
           <img src="VECTORS-02.png"  height="150" width="600">
         </div>
       </h1>
-      
-   
-
-
+<!-- =======
+          <img src="./images/logo2-01.jpg"  height="50" width="700">
+          <div>
+            <img src="./images/bottles-01.jpg"  height="200" width="400">
+          </div>
+      </h1>
+>>>>>>> master -->
 
     <div class="row">
+
       <div class="col-sm-12">
-        <br>
+        <br>"
         <!-- First panel is for handling the search parameters -->
         <div class="card" id=card>
           <div class="card-header">
@@ -60,7 +60,6 @@
           </div>
           <div class="card-body">
               <form>
-
                 <div class="form-group">
                   <label for="recipeStorage">Recipe Name</label>
                   <input type="type" class="form-control" id="name-input" aria-describedby="recipeName" placeholder="Store your recipes in the database!">
@@ -85,7 +84,6 @@
                         <a class="dropdown-item" href="#">Beef</a>
                       
                         <div class="dropdown-divider"></div>
-
                       </div>
                   </div>
                 </div>
@@ -97,95 +95,12 @@
         </div>
       </div>
     </div>
-
-    <div id="recipeCards"> 
-
-      <div class="card-deck">
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
-          </div>
-        </div>
-
-    </div>
-
-  </div>
-   
-  
+    <div id="recipes"></div>
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-  
   <script src="script.js"></script>
 </body>
 </html>
