@@ -9,6 +9,7 @@ body {
     height:100px;
 }
 
+
 .jumbotron {
     width: 900px;
     margin: auto;
@@ -29,4 +30,5 @@ body {
 
 #btn btn-danger {
     color: cadetblue;
+
 }
