@@ -23,42 +23,86 @@ $(document).ready(function(){
         
         // $("#meatChoiceInput").val("");
         
-        
-        
+
+        var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
+
         $.ajax({
+          method: 'GET',
+          url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&t='
+        }).then(function(data) {
+          var cleanData = JSON.parse(data);
+          console.log("wineData",cleanData);
+          $.ajax({
             method: 'GET',
-            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q=' + meatChoice
+            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q='+ meatChoice
           }).then(function(data) {
-            console.log(data);
-            recipeResults = data;
-            var showRecipes = function() {
-              for (var i = 0; i <= recipeResults[8]; i++) {
-                var recipeResult = recipeResults[i];
-                $(".card-img-top").attr("src=" + recipeResult.recipes.image_url);
-                $(".card-title").text(recipeResult.recipes.title);
-                $(".card-text").text("Source: " + recipeResult.recipes.publisher + "<br> <br> <a src='" + recipeResult.recipes.f2f_url + "'>Read it here!</a>");
-              }
+            $("#mainDiv").empty();
+            var cleanData = JSON.parse(data);
+            console.log("recipesdata",cleanData);
+            for(var i=0; i < cleanData.recipes.length; i++ ){
+              console.log("singledude",cleanData.recipes[i]);
+              var h1 = $("<h1>")
+              var myImage = $("<img>")
+              myImage.attr("src",cleanData.recipes[i].image_url)
+              // myImage.attr("src",cleanData.recipes[i].f2f_url)
+              myImage.attr("class","recipePictures")
+              h1.text(cleanData.recipes[i].title)
+              $("#recipes").append(h1);
+              $("#recipes").append(myImage);
             }
-            showRecipes();  
           });
+          
+        });
+        
+        // $.ajax({
+        //     method: 'GET',
+        //     url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q='+ meatChoice
+        //   }).then(function(data) {
+        //     $("#mainDiv").empty();
+        //     var cleanData = JSON.parse(data);
+        //     console.log("recipesdata",cleanData);
+        //     for(var i=0; i < cleanData.recipes.length; i++ ){
+        //       console.log("singledude",cleanData.recipes[i]);
+        //       var h1 = $("<h1>")
+        //       var myImage = $("<img>")
+        //       myImage.attr("src",cleanData.recipes[i].image_url)
+        //       myImage.attr("class","recipePictures")
+        //       h1.text(cleanData.recipes[i].title)
+        //       $("#recipes").append(h1);
+        //       $("#recipes").append(myImage);
+        //     }
+        //   });
+        
+        
+        // $.ajax({
+        //     url: queryURL,
+           
+        //     method: "GET"
+        // }).then(function(response) {
+        //     console.log("This is our response"+ response);
+        // })
 
         
-        
-        $("#wineButton").on("click", function(event){
-            event.preventDefault();
-            console.log("We got clicked");
-            var winePair=$(this).text();
+        // $("#wineButton").on("click", function(event){
+        //     event.preventDefault();
+        //     console.log("We got clicked");
+        //     var winePair=$(this).text();
             
-            console.log(winePair);
+        //     console.log(winePair);
+
+            // var queryURL= "http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&t=" +winePair;
+            
            
-            $.ajax({
-                method: 'GET',
-                url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=5'
-              }).then(function(data) {
-                console.log(data);
-              });
-            })
-        
+        //     $.ajax({
+        //         method: 'GET',
+        //         url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30'
+        //       }).then(function(data) {
+        //         var cleanData = JSON.parse(data);
+        //         console.log("recipesdata",cleanData);
+                
+        //       });
+            // })
+
     })
 
 });
