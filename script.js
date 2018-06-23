@@ -22,13 +22,52 @@ $(document).ready(function(){
         // $("#meatChoiceInput").val("");
         
         var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
-        
         $.ajax({
+          method: 'GET',
+          url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&t='
+        }).then(function(data) {
+          var cleanData = JSON.parse(data);
+          console.log("wineData",cleanData);
+          $.ajax({
             method: 'GET',
-            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q=chicken'
+            url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q='+ meatChoice
           }).then(function(data) {
-            console.log(data);
+            $("#mainDiv").empty();
+            var cleanData = JSON.parse(data);
+            console.log("recipesdata",cleanData);
+            for(var i=0; i < cleanData.recipes.length; i++ ){
+              console.log("singledude",cleanData.recipes[i]);
+              var h1 = $("<h1>")
+              var myImage = $("<img>")
+              myImage.attr("src",cleanData.recipes[i].image_url)
+              // myImage.attr("src",cleanData.recipes[i].f2f_url)
+              myImage.attr("class","recipePictures")
+              h1.text(cleanData.recipes[i].title)
+              $("#recipes").append(h1);
+              $("#recipes").append(myImage);
+            }
           });
+          
+        });
+        
+        // $.ajax({
+        //     method: 'GET',
+        //     url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q='+ meatChoice
+        //   }).then(function(data) {
+        //     $("#mainDiv").empty();
+        //     var cleanData = JSON.parse(data);
+        //     console.log("recipesdata",cleanData);
+        //     for(var i=0; i < cleanData.recipes.length; i++ ){
+        //       console.log("singledude",cleanData.recipes[i]);
+        //       var h1 = $("<h1>")
+        //       var myImage = $("<img>")
+        //       myImage.attr("src",cleanData.recipes[i].image_url)
+        //       myImage.attr("class","recipePictures")
+        //       h1.text(cleanData.recipes[i].title)
+        //       $("#recipes").append(h1);
+        //       $("#recipes").append(myImage);
+        //     }
+        //   });
         
         
         // $.ajax({
@@ -40,23 +79,25 @@ $(document).ready(function(){
         // })
 
         
-        $("#wineButton").on("click", function(event){
-            event.preventDefault();
-            console.log("We got clicked");
-            var winePair=$(this).text();
+        // $("#wineButton").on("click", function(event){
+        //     event.preventDefault();
+        //     console.log("We got clicked");
+        //     var winePair=$(this).text();
             
-            console.log(winePair);
+        //     console.log(winePair);
 
-            var queryURL= "http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30" +winePair;
+            // var queryURL= "http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&t=" +winePair;
             
            
-            $.ajax({
-                method: 'GET',
-                url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30'
-              }).then(function(data) {
-                console.log(data);
-              });
-            })
+        //     $.ajax({
+        //         method: 'GET',
+        //         url: 'https://cors-anywhere.herokuapp.com/' + 'http://api.snooth.com/wines/?akey=r5l4astuvugywu5f0f80llsepjff64yp98w008mhhn7jd639&ip=66.28.234.115&q=wine&xp=30'
+        //       }).then(function(data) {
+        //         var cleanData = JSON.parse(data);
+        //         console.log("recipesdata",cleanData);
+                
+        //       });
+            // })
         
     })
 });
