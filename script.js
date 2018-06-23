@@ -70,7 +70,12 @@ $(document).ready(function(){
               // myImage.attr("src",cleanData.recipes[i].f2f_url)
               myImage.attr("class","recipePictures")
               recipeTitle.text(cleanData.recipes[i].title)
-              // h1.attr("src",cleanData.recipes[i].f2f_url)
+
+              recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
+            
+              recipeTitle.attr("target", "_blank");
+
+
               $("#recipes").append(recipeTitle);
               $("#recipes").append(myImage);
               

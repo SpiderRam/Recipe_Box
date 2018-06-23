@@ -1,8 +1,41 @@
 body {
-    background-image: url("vineyard.jpeg");
+    background-image: url("images/vineyard2.jpg");
+    background-size: auto;
+   
 }
 
 .recipePictures{
     width: 100px;
     height:100px;
+}
+
+
+.jumbotron {
+    width: 900px;
+    margin: auto;
+}
+
+.form-group {
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#recipes {
+    background-color: white;
+    width:900px;
+    margin: auto;
+    font-size: 14px;
+    
+
+}
+
+#btn btn-danger {
+    color: cadetblue;
+    
+
+}
+
+a {
+    display: block;
+
 }
