@@ -57,16 +57,17 @@ $(document).ready(function(){
             console.log("recipesdata",cleanData);
             for(var i=0; i < cleanData.recipes.length; i++ ){
               console.log("Individual Recipe",cleanData.recipes[i]);
-              var h1 = $("<h1>")
+              var recipeTitle = $("<a>")
               var myImage = $("<img>")
               myImage.attr("src",cleanData.recipes[i].image_url)
               // myImage.attr("src",cleanData.recipes[i].f2f_url)
               myImage.attr("class","recipePictures")
-              h1.text(cleanData.recipes[i].title)
+              recipeTitle.text(cleanData.recipes[i].title)
+              recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
+            
+              recipeTitle.attr("target", "_blank");
 
-              h1.attr("src",cleanData.recipes[i].f2f_url)
-
-              $("#recipes").append(h1);
+              $("#recipes").append(recipeTitle);
               $("#recipes").append(myImage);
             }
           });
