@@ -22,7 +22,7 @@ $(document).ready(function(){
         // recipedata.ref().push(pickedRecipe);
         
         // $("#meatChoiceInput").val("");
-        
+        var wineColor = "";
 
         var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
         // set wine color based on meat choice
@@ -48,6 +48,12 @@ $(document).ready(function(){
         }).then(function(data) {
           var cleanData = JSON.parse(data);
           console.log("wineData",cleanData);
+          for(var i= 0; i<cleanData.wines.length; i++){
+            console.log("wines choice", cleanData.wines[i]);
+            var wineTitle=$("<h3>")
+            wineTitle.text(cleanData.wines[i].name)
+            $("#wines").append(wineTitle);
+          }
           $.ajax({
             method: 'GET',
             url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q='+ meatChoice
@@ -60,15 +66,19 @@ $(document).ready(function(){
               var recipeTitle = $("<a>")
               var myImage = $("<img>")
               myImage.attr("src",cleanData.recipes[i].image_url)
+              recipeTitle.attr("src",cleanData.recipes[i].f2f_url)
               // myImage.attr("src",cleanData.recipes[i].f2f_url)
               myImage.attr("class","recipePictures")
               recipeTitle.text(cleanData.recipes[i].title)
+
               recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
             
               recipeTitle.attr("target", "_blank");
 
+
               $("#recipes").append(recipeTitle);
               $("#recipes").append(myImage);
+              
             }
           });
           
