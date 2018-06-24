@@ -29,6 +29,15 @@ body {
 
 }
 
+#wines {
+    background-color: white;
+    width:900px;
+
+    font-size: 14px;
+    
+
+}
+
 #btn btn-danger {
     color: cadetblue;
     

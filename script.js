@@ -28,18 +28,23 @@ $(document).ready(function(){
         // set wine color based on meat choice
         if (meatChoice == "Pork") {
           var wineColor = "amber";
+          // $('#wines').prepend('<img id="amber" src="./images/amber.jpg" />')
         }
-        if(meatChoice=="Tofu"){
-          var WineColor="clear";
+        if(meatChoice == "Tofu"){
+          var wineColor = "clear";
+          // $('#wines').prepend('<img id="clear" src="./images/clear.jpg" />')
         }
         if (meatChoice == "Beef"){
           var wineColor = "red";
+          // $('#wines').prepend('<img id="red" src="./images/red.jpg" />')
         }
         if(meatChoice == "Chicken"){
           var wineColor = "white";
+          // $('#wines').prepend('<img id="white" src="./images/white.jpg" />')
         }
         if(meatChoice == "Fish"){
           var wineColor = "rose";
+          // $('#wines').prepend('<img id="rose" src="./images/rose.jpg" />')
         }
 
         $.ajax({
@@ -50,9 +55,11 @@ $(document).ready(function(){
           console.log("wineData",cleanData);
           for(var i= 0; i<cleanData.wines.length; i++){
             console.log("wines choice", cleanData.wines[i]);
-            var wineTitle=$("<h3>")
+            var wineTitle=$("<h1>")
             wineTitle.text(cleanData.wines[i].name)
             $("#wines").append(wineTitle);
+            
+
           }
           $.ajax({
             method: 'GET',
@@ -63,8 +70,11 @@ $(document).ready(function(){
             console.log("recipesdata",cleanData);
             for(var i=0; i < cleanData.recipes.length; i++ ){
               console.log("Individual Recipe",cleanData.recipes[i]);
+              var contentWrapper=$("<div>")
               var recipeTitle = $("<a>")
               var myImage = $("<img>")
+              contentWrapper.addClass("wrapper")
+              contentWrapper.attr("id",cleanData.recipes[i].title)
               myImage.attr("src",cleanData.recipes[i].image_url)
               recipeTitle.attr("src",cleanData.recipes[i].f2f_url)
               // myImage.attr("src",cleanData.recipes[i].f2f_url)
@@ -75,7 +85,7 @@ $(document).ready(function(){
             
               recipeTitle.attr("target", "_blank");
 
-
+// put recipe title and my image into content wrapper
               $("#recipes").append(recipeTitle);
               $("#recipes").append(myImage);
               
