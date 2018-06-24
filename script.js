@@ -50,8 +50,10 @@ $(document).ready(function(){
           console.log("wineData",cleanData);
           for(var i= 0; i<cleanData.wines.length; i++){
             console.log("wines choice", cleanData.wines[i]);
-            var wineTitle=$("<p>");
+            var wineTitle=$("<a>");
             wineTitle.text(cleanData.wines[i].name);
+            wineTitle.attr("href", cleanData.wines[i].link);
+            wineTitle.attr("target", "_blank");
             var wineImage = $("<img>");
             wineImage.attr("src",cleanData.wines[i].image);
             $("#wines").append(wineTitle);

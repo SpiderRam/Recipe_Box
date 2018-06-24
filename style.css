@@ -26,14 +26,12 @@ body {
     border: 2px solid black;
     width: 100px;
     height:100px;
-    margin-top: 17px;
 }
 
 #wines {
     background-color: white;
     margin: 20px 3% 30px 10px;
     font-size: 18px;
-    color: blue;
     border: 3px solid black;
 }
 
