@@ -4,11 +4,6 @@ body {
    
 }
 
-.recipePictures{
-    width: 100px;
-    height:100px;
-}
-
 
 .jumbotron {
     width: 900px;
@@ -22,11 +17,28 @@ body {
 
 #recipes {
     background-color: white;
-    width:900px;
-    margin: auto;
-    font-size: 14px;
-    
+    margin: 20px 10px 30px 3%;
+    font-size: 18px;
+    border: 3px solid black;
+}
 
+#recipes img {
+    border: 2px solid black;
+    width: 100px;
+    height:100px;
+}
+
+#wines {
+    background-color: white;
+    margin: 20px 3% 30px 10px;
+    font-size: 18px;
+    border: 3px solid black;
+}
+
+#wines img {
+    border: 2px solid black;
+    width: 100px;
+    height:100px;
 }
 
 #btn btn-danger {
@@ -40,6 +52,3 @@ a {
 
 }
 
-a {
-    display: block;
-}
