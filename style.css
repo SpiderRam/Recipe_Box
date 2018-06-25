@@ -39,3 +39,12 @@ a {
     display: block;
 
 }
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+#recipes {
+    margin-left: 16px;
+}
