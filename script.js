@@ -4,13 +4,14 @@ var recipeResults;
 var wineResults;
 
 $(document).ready(function(){
-  
-  
   $(".dropdown-item").on("click", function(event){
     event.preventDefault();
+    $("#recipes").empty();
+    $("#wines").empty();
     console.log("We got clicked");
     var meatChoice=$(this).text();
-    
+  
+ 
     console.log(meatChoice);
     
     var wineColor = "";
@@ -46,6 +47,7 @@ $(document).ready(function(){
       console.log("wineData",cleanData);
       for(var i= 0; i<cleanData.wines.length; i++){
         console.log("wines choice", cleanData.wines[i]);
+
         
         var wineTitle=$("<a>");
         wineTitle.text(cleanData.wines[i].name);

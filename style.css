@@ -38,17 +38,16 @@ body {
 #wines img {
     border: 2px solid black;
     width: 100px;
-    height:100px;
-    
+
+
+    height: 100px;
+
 }
 
 #wines {
     background-color: white;
-    width:900px;
-
-    font-size: 14px;
-    
-
+    width: 900px;
+    font-size: 18px;
 }
 
 #btn btn-danger {
@@ -59,6 +58,6 @@ body {
 
 a {
     display: block;
-
 }
+
 
