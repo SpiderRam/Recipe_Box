@@ -22,24 +22,29 @@ $(document).ready(function(){
         // recipedata.ref().push(pickedRecipe);
         
         // $("#meatChoiceInput").val("");
-        
+        var wineColor = "";
 
-        var queryURL = " http://food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q="+ meatChoice;
+       
         // set wine color based on meat choice
         if (meatChoice == "Pork") {
           var wineColor = "amber";
+          // $('#wines').prepend('<img id="amber" src="./images/amber.jpg" />')
         }
+
         if(meatChoice=="Tofu"){
-          var WineColor="clear";
+          var wineColor="clear";
         }
         if (meatChoice == "Beef"){
           var wineColor = "red";
+          // $('#wines').prepend('<img id="red" src="./images/red.jpg" />')
         }
         if(meatChoice == "Chicken"){
           var wineColor = "white";
+          // $('#wines').prepend('<img id="white" src="./images/white.jpg" />')
         }
         if(meatChoice == "Fish"){
           var wineColor = "rose";
+          // $('#wines').prepend('<img id="rose" src="./images/rose.jpg" />')
         }
 
         $.ajax({
@@ -48,6 +53,19 @@ $(document).ready(function(){
         }).then(function(data) {
           var cleanData = JSON.parse(data);
           console.log("wineData",cleanData);
+          for(var i= 0; i<cleanData.wines.length; i++){
+            console.log("wines choice", cleanData.wines[i]);
+
+            var wineTitle=$("<a>");
+            wineTitle.text(cleanData.wines[i].name);
+            wineTitle.attr("href", cleanData.wines[i].link);
+            wineTitle.attr("target", "_blank");
+            var wineImage = $("<img>");
+            wineImage.attr("src",cleanData.wines[i].image);
+            $("#wines").append(wineTitle);
+            $("#wines").append(wineImage);
+
+          }
           $.ajax({
             method: 'GET',
             url: 'https://cors-anywhere.herokuapp.com/' + 'food2fork.com/api/search?key=5efd6700d05dd5b856e7fc18388f7e35&q='+ meatChoice
@@ -57,18 +75,25 @@ $(document).ready(function(){
             console.log("recipesdata",cleanData);
             for(var i=0; i < cleanData.recipes.length; i++ ){
               console.log("Individual Recipe",cleanData.recipes[i]);
+              var contentWrapper=$("<div>")
               var recipeTitle = $("<a>")
               var myImage = $("<img>")
+              contentWrapper.addClass("wrapper")
+              contentWrapper.attr("id",cleanData.recipes[i].title)
               myImage.attr("src",cleanData.recipes[i].image_url)
+              recipeTitle.attr("src",cleanData.recipes[i].f2f_url)
               // myImage.attr("src",cleanData.recipes[i].f2f_url)
               myImage.attr("class","recipePictures")
               recipeTitle.text(cleanData.recipes[i].title)
+
               recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
             
               recipeTitle.attr("target", "_blank");
 
+// put recipe title and my image into content wrapper
               $("#recipes").append(recipeTitle);
               $("#recipes").append(myImage);
+              
             }
           });
           
@@ -127,8 +152,3 @@ $(document).ready(function(){
 
 });
 
-//Notes for moving forward:  
-
-//Should the wine button be in the same function with the recipe button?  It might be better to have it in its own click event, since it happens after the recipes are returned and dsiplayed, and the user chooses a recipe.
-
-//Lines 33-42 are meant to populate the cards in the deck with image, title, and link to page.  It's not working. Either the format of the API response is the problem (it looks odd), or my JQuery is bad.
