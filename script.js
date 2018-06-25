@@ -9,6 +9,8 @@ $(document).ready(function(){
     
     $(".dropdown-item").on("click", function(event){
         event.preventDefault();
+        $("#recipes").empty();
+        $("#wines").empty();
         console.log("We got clicked");
         var meatChoice=$(this).text();
         
