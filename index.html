@@ -60,9 +60,10 @@
                 <table class="table table-hover" id='recipe-box'>
                   <thead>
                     <tr>
-                      <th id=recipeInput>Recipe Name</th>
-                      <th id=wineInput>Meat Selection</th>
-                      <th id=userInput>Rating</th>
+                      <th id="recipeTitle">Recipe Title</th>
+                      <th id="recipeUrl">Recipe Link</th>
+                      <th id="wineName">Wine Selection</th>
+                      <th id="wineUrl">Wine Link</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -76,8 +77,8 @@
             </div>
           </div>
           <div class="btn-group">
-              <button type="button" class="btn btn-danger">Meats</button>
-              <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-danger" id="meatButton">Meats</button>
+              <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="meatButtonDrop">
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <div class="dropdown-menu" >
@@ -96,24 +97,14 @@
             </div>
           </div>
        
-          <h1></h1>
-                  </div>
-                </div>
-
-
-                
-
+          <div class="card text-center" id="saveFavorites">
+            <div class="card-body">
               
+              <p class="card-text">Click the titles to research your choices.  Then choose one of each.  Click this button after you have made your choices to save them to your recipe box.</p>
+              <button>Save your choices!</button>
             </div>
             
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-    </div>
 
   
         <div class="row" id="container">
