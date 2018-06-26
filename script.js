@@ -60,6 +60,12 @@ $(document).ready(function(){
             var wineImage = $("<img>");
             wineImage.attr("src",cleanData.wines[i].image);
             wineChoice = $("<button>Choose Me!</button>");
+            wineChoice.attr("class", "wine-choice");
+
+            wineChoice.attr("data-wine-url", cleanData.wines[i].link);
+            wineChoice.attr("data-wine-name", cleanData.wines[i].name);
+            wineChoice.attr("class", "wine-choice");
+
             $("#wines").append(wineTitle);
             $("#wines").append(wineImage);
             $("#wines").append(wineChoice);
@@ -82,13 +88,17 @@ $(document).ready(function(){
               myImage.attr("src",cleanData.recipes[i].image_url)
               recipeTitle.attr("src",cleanData.recipes[i].f2f_url)
               
-              myImage.attr("class","recipePictures")
+              myImage.attr("class", "recipePictures")
               recipeTitle.text(cleanData.recipes[i].title)
 
               recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
             
               recipeTitle.attr("target", "_blank");
               recipeChoice = $("<button>Choose Me!</button>");
+
+              recipeChoice.attr("data-recipe-url", cleanData.recipes[i].f2f_url);
+              recipeChoice.attr("data-recipe-name", cleanData.recipes[i].title);
+              recipeChoice.attr("class", "recipe-choice");
 
               $("#recipes").append(recipeTitle);
               $("#recipes").append(myImage);
@@ -102,9 +112,18 @@ $(document).ready(function(){
 
     })
 
-    $(wineChoice).on("click", function() {
-      currentChoice.recipe = 
-    })
+    $("body").on("click", ".recipe-choice", function() {
+      var buttonAsJQueryObject = $(this);
+      currentChoice.recipeName = buttonAsJQueryObject.attr("data-recipe-name");
+      currentChoice.recipeUrl = buttonAsJQueryObject.attr("data-recipe-url");
+      console.log(currentChoice);
+    });
 
+    $("body").on("click", ".wine-choice", function() {
+      var buttonAsJQueryObject = $(this);
+      currentChoice.wineName = buttonAsJQueryObject.attr("data-wine-name");
+      currentChoice.wineUrl = buttonAsJQueryObject.attr("data-wine-url");
+      console.log(currentChoice);
+    });
 });
 
