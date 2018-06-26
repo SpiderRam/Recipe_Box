@@ -48,7 +48,10 @@ body {
 #wines img {
     border: 2px solid black;
     width: 100px;
+
+
     height: 100px;
+
 }
 
 #wines {
