@@ -19,6 +19,12 @@ body {
     margin-top: 10px;
 }
 
+#saveFavorites {
+    width: 30%;
+    margin: 0 auto;
+    
+}
+
 #recipes {
     background-color: white;
     margin: 20px 10px 30px 3%;
