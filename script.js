@@ -20,7 +20,7 @@ $(document).ready(function(){
       var wineColor = "amber";
     }
     if(meatChoice=="Tofu"){
-      var wineColor="clear";
+      var wineColor = "clear";
     }
     if (meatChoice == "Beef"){
       var wineColor = "red";
@@ -41,7 +41,7 @@ $(document).ready(function(){
       
       for(var i= 0; i<cleanData.wines.length; i++){
         console.log("wines choice", cleanData.wines[i]);
-        var wineTitle=$("<a>");
+        var wineTitle = $("<a>");
         wineTitle.text(cleanData.wines[i].name);
         wineTitle.attr("href", cleanData.wines[i].link);
         wineTitle.attr("target", "_blank");
@@ -56,7 +56,7 @@ $(document).ready(function(){
         console.log("wineChoice",wineChoice);
         $("#wines").append(wineTitle);
         $("#wines").append(wineImage);
-        $("#wines").append(wineChoice)        
+        $("#wines").append(wineChoice);        
       }
       
       $.ajax({
@@ -68,11 +68,11 @@ $(document).ready(function(){
         
         for(var i=0; i < cleanData.recipes.length; i++ ){
           console.log("Individual Recipe",cleanData.recipes[i]);
-          var recipeTitle = $("<a>")
-          var myImage = $("<img>")         
-          myImage.attr("src",cleanData.recipes[i].image_url)
-          recipeTitle.attr("src",cleanData.recipes[i].f2f_url)         
-          recipeTitle.text(cleanData.recipes[i].title)
+          var recipeTitle = $("<a>");
+          var myImage = $("<img>");         
+          myImage.attr("src",cleanData.recipes[i].image_url);
+          recipeTitle.attr("src",cleanData.recipes[i].f2f_url);         
+          recipeTitle.text(cleanData.recipes[i].title);
           recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
           recipeTitle.attr("target", "_blank");
           recipeChoice = $("<button>Choose Me!</button>");
@@ -82,29 +82,21 @@ $(document).ready(function(){
           recipeChoice.attr("class", "recipe-choice");
           $("#recipes").append(recipeTitle);
           $("#recipes").append(myImage);
-          $("#recipes").append(recipeChoice)
+          $("#recipes").append(recipeChoice);
         }
       });
 
-      recipeData.ref().push(pickedRecipe);
-        
-      $("#recipeInput").val("");
-      $("#wineInput").val("");
-      $("#userInput").val("");
-        
-      return false
-    })
+    });
     
     recipeData.ref().on("child_added",function(snapshot){
-      var name= snapshot.val().recipeName;
-      var recipeLink=snapshot.val().recipeUrl;
-        var wine=snapshot.val().wineName;
-        var wineLink= snapshot.val().wineUrl;
+      var name = snapshot.val().recipeName;
+      var recipeLink = snapshot.val().recipeUrl;
+        var wine = snapshot.val().wineName;
+        var wineLink = snapshot.val().wineUrl;
         console.log("this is from db",snapshot.val());
-
         $("#recipe-box > tBody").append("<tr><td>"+ name+ "</td><td>" + recipeLink + "</td><td>" + wine + "</td><td>" + wineLink + "</td><tr>");
-      })
-    })
+      });
+    });
     
     $("body").on("click", ".recipe-choice", function() {
       var buttonAsJQueryObject = $(this);
@@ -123,7 +115,7 @@ $(document).ready(function(){
     $("#saveChoice").on("click", function(){
       console.log("this is our current choice", currentChoice);
       recipeData.ref().push(currentChoice);
-    })
+    });
   
     var config = {
     apiKey: "AIzaSyAMVMiPlgICX_CJxs5ivIrtv7Z3yrsDyWI",
