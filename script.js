@@ -71,7 +71,7 @@ $(document).ready(function(){
           var recipeTitle = $("<a>");
           var myImage = $("<img>");         
           myImage.attr("src",cleanData.recipes[i].image_url);
-          recipeTitle.attr("src",cleanData.recipes[i].f2f_url);         
+          recipeTitle.attr("src",cleanData.recipes[i].f2f_url);     
           recipeTitle.text(cleanData.recipes[i].title);
           recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
           recipeTitle.attr("target", "_blank");
@@ -84,7 +84,7 @@ $(document).ready(function(){
           $("#recipes").append(myImage);
           $("#recipes").append(recipeChoice);
         };
-        
+
       });
 
     });
@@ -95,13 +95,14 @@ $(document).ready(function(){
       var wine = snapshot.val().wineName;
       var wineLink = snapshot.val().wineUrl;
       console.log("this is from db",snapshot.val());
-      $("#recipe-box > tBody").append("<tr><td>"+ name+ "</td><td>" + recipeLink + "</td><td>" + wine + "</td><td>" + wineLink + "</td><tr>");
+      $("#recipe-box > tBody").append("<tr><td>"+ name + "</td><td><a href=" + recipeLink + " target='_blank'>" + "Recipe Link" + "</a></td><td>" + wine + "</td><td><a href=" + wineLink + " target='_blank'>" + "Wine Link" + "</a></td><tr>");
       });
 
     });
     
     $("body").on("click", ".recipe-choice", function() {
       var buttonAsJQueryObject = $(this);
+      $(this).toggleClass('active');
       currentChoice.recipeName = buttonAsJQueryObject.attr("data-recipe-name");
       currentChoice.recipeUrl = buttonAsJQueryObject.attr("data-recipe-url");
       console.log(currentChoice);

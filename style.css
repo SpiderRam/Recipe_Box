@@ -8,7 +8,7 @@ body {
 }
 
 .jumbotron {
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 
@@ -65,7 +65,13 @@ body {
     text-shadow: 2px 2px gray;
 }
 
-#wine-choice-button:focus, #recipe-choice-button:focus {
+#wine-choice-button:active, #recipe-choice-button:active {
+    background-color: white;
+    color: #008B8B;
+    text-shadow: 1px 1px gray;
+}
+
+#recipe-choice-button.active {
     background-color: white;
     color: #008B8B;
     text-shadow: 1px 1px gray;
