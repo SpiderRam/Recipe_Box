@@ -241,9 +241,10 @@ $(document).ready(function(){
           $("#recipeBox > tBody").append("<tr><td>"+ name + "</td><td>" + wine + "</td><td>" + rating + "</td><tr>");
       })
         
-        
+     
 
     })
+  
 
     $("body").on("click", ".recipe-choice", function() {
       var buttonAsJQueryObject = $(this);
