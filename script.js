@@ -83,7 +83,8 @@ $(document).ready(function(){
           $("#recipes").append(recipeTitle);
           $("#recipes").append(myImage);
           $("#recipes").append(recipeChoice);
-        }
+        };
+        
       });
 
     });
@@ -91,11 +92,12 @@ $(document).ready(function(){
     recipeData.ref().on("child_added",function(snapshot){
       var name = snapshot.val().recipeName;
       var recipeLink = snapshot.val().recipeUrl;
-        var wine = snapshot.val().wineName;
-        var wineLink = snapshot.val().wineUrl;
-        console.log("this is from db",snapshot.val());
-        $("#recipe-box > tBody").append("<tr><td>"+ name+ "</td><td>" + recipeLink + "</td><td>" + wine + "</td><td>" + wineLink + "</td><tr>");
+      var wine = snapshot.val().wineName;
+      var wineLink = snapshot.val().wineUrl;
+      console.log("this is from db",snapshot.val());
+      $("#recipe-box > tBody").append("<tr><td>"+ name+ "</td><td>" + recipeLink + "</td><td>" + wine + "</td><td>" + wineLink + "</td><tr>");
       });
+
     });
     
     $("body").on("click", ".recipe-choice", function() {
@@ -128,5 +130,6 @@ $(document).ready(function(){
     
     firebase.initializeApp(config);
     var recipeData=firebase.database();
+    
   });
 
