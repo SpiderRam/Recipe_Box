@@ -69,8 +69,8 @@ $(document).ready(function(){
         for(var i=0; i < cleanData.recipes.length; i++ ){
           console.log("Individual Recipe",cleanData.recipes[i]);
           var recipeTitle = $("<a>");
-          var myImage = $("<img>");         
-          myImage.attr("src",cleanData.recipes[i].image_url);
+          var recipeImage = $("<img>");         
+          recipeImage.attr("src",cleanData.recipes[i].image_url);
           recipeTitle.attr("src",cleanData.recipes[i].f2f_url);     
           recipeTitle.text(cleanData.recipes[i].title);
           recipeTitle.attr("href", cleanData.recipes[i].f2f_url);
@@ -81,7 +81,7 @@ $(document).ready(function(){
           recipeChoice.attr("data-recipe-name", cleanData.recipes[i].title);
           recipeChoice.attr("class", "recipe-choice");
           $("#recipes").append(recipeTitle);
-          $("#recipes").append(myImage);
+          $("#recipes").append(recipeImage);
           $("#recipes").append(recipeChoice);
         };
 
@@ -95,7 +95,7 @@ $(document).ready(function(){
       var wine = snapshot.val().wineName;
       var wineLink = snapshot.val().wineUrl;
       console.log("this is from db",snapshot.val());
-      $("#recipe-box > tBody").append("<tr><td>"+ name + "</td><td><a href=" + recipeLink + " target='_blank'>" + "Recipe Link" + "</a></td><td>" + wine + "</td><td><a href=" + wineLink + " target='_blank'>" + "Wine Link" + "</a></td><tr>");
+      $("#recipe-box > tBody").append("<tr><td>"+ name + "</td><td><a class='recipeBoxLink' href=" + recipeLink + " target='_blank'>" + "Recipe Link" + "</a></td><td>" + wine + "</td><td><a class='recipeBoxLink' href=" + wineLink + "' target='_blank'>" + "Wine Link" + "</a></td><tr>");
       });
 
     });
@@ -130,7 +130,7 @@ $(document).ready(function(){
     };
     
     firebase.initializeApp(config);
-    var recipeData=firebase.database();
+    var recipeData = firebase.database();
     
   });
 

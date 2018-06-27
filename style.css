@@ -12,6 +12,10 @@ body {
     margin: auto;
 }
 
+.recipeBoxLink {
+    font-size: 12px;
+}
+
 #meatButton, #meatButtonDrop {
     margin-top: 10px;
     padding: 10px 25px;
@@ -48,6 +52,7 @@ body {
     border: 2px solid black;
     width: 100px;
     height:100px;
+    margin-bottom: 5px;
 }
 
 #wines {
@@ -80,5 +85,3 @@ body {
 a {
     display: block;
 }
-
-
