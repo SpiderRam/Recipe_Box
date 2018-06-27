@@ -1,4 +1,4 @@
-console.log("page loaded");
+//console.log("page loaded");
 
 var recipeResults;
 var wineResults;
@@ -58,16 +58,13 @@ $(document).ready(function(){
             wineTitle.attr("target", "_blank");
             var wineImage = $("<img>");
             wineImage.attr("src",cleanData.wines[i].image);
-            wineChoice = $("<button>Choose Me!</button>");
-    
+            wineChoice = $("<button>Choose Me!</button>");    
             wineChoice.attr("class", "wine-choice");
-
+            wineChoice.attr("id", "wine-choice-button");
             wineChoice.attr("data-wine-url", cleanData.wines[i].link);
             wineChoice.attr("data-wine-name", cleanData.wines[i].name);
             wineChoice.attr("class", "wine-choice");
             console.log("wineChoice",wineChoice);
-            
-
             $("#wines").append(wineTitle);
             $("#wines").append(wineImage);
             $("#wines").append(wineChoice)
@@ -97,7 +94,7 @@ $(document).ready(function(){
             
               recipeTitle.attr("target", "_blank");
               recipeChoice = $("<button>Choose Me!</button>");
-
+              recipeChoice.attr("id", "recipe-choice-button");
               recipeChoice.attr("data-recipe-url", cleanData.recipes[i].f2f_url);
               recipeChoice.attr("data-recipe-name", cleanData.recipes[i].title);
               recipeChoice.attr("class", "recipe-choice");
