@@ -137,15 +137,18 @@ $(document).ready(function(){
             var wineImage = $("<img>");
             wineImage.attr("src",cleanData.wines[i].image);
             wineChoice = $("<button>Choose Me!</button>");
+    
             wineChoice.attr("class", "wine-choice");
 
             wineChoice.attr("data-wine-url", cleanData.wines[i].link);
             wineChoice.attr("data-wine-name", cleanData.wines[i].name);
             wineChoice.attr("class", "wine-choice");
+            console.log("wineChoice",wineChoice);
+            
 
             $("#wines").append(wineTitle);
             $("#wines").append(wineImage);
-            $("#wines").append(wineChoice);
+            $("#wines").append(wineChoice)
             
           }
           $.ajax({
@@ -211,8 +214,8 @@ $(document).ready(function(){
           
           
           
-          $("#recipeBox > tBody").append("<tr><td>"+ name + "</td><td>" + wine + "</td><td>" + rating + "</td><tr>");
-        })
+          // $("#recipeBox > tBody").append("<tr><td>"+ name + "</td><td>" + wine + "</td><td>" + rating + "</td><tr>");
+        // })
         
         
         
@@ -261,4 +264,5 @@ $("#addChoiceButton").on("click", function(){
     rating: userRating,
 
   }
+})
 })
