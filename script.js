@@ -95,44 +95,17 @@ $(document).ready(function(){
     });
     
     
-    var config = {
-      apiKey: "AIzaSyAMVMiPlgICX_CJxs5ivIrtv7Z3yrsDyWI",
-      authDomain: "recipebox-9b7a6.firebaseapp.com",
-      databaseURL: "https://recipebox-9b7a6.firebaseio.com",
-      projectId: "recipebox-9b7a6",
-      storageBucket: "recipebox-9b7a6.appspot.com",
-      messagingSenderId: "315061764504"
-    };
-    firebase.initializeApp(config);
     
     
-    var recipeData=firebase.database();
+    var wineColor = "";
     
-    // $("#addChoiceInput").val("");
-    $("#addChoiceButton").on("click", function(){
-      var pickedRecipe = $("#recipeInput").val().trim();
-      var pickedWine = $("#wineInput").val().trim();
-      var userRating = $("#userInput").val().trim();
-      
-      
-      var pairedRecipe = {
-        name: pickedRecipe,
-        wine: pickedWine,
-        rating: userRating,
-
-      }
-        
-
-        
-        var wineColor = "";
-
        
-        
-        if (meatChoice == "Pork") {
-          var wineColor = "amber";
-          
+    
+    if (meatChoice == "Pork") {
+      var wineColor = "amber";
+      
         }
-
+        
         if(meatChoice=="Tofu"){
           var wineColor="clear";
         }
@@ -173,7 +146,7 @@ $(document).ready(function(){
             $("#wines").append(wineTitle);
             $("#wines").append(wineImage);
             $("#wines").append(wineChoice);
-          
+            
           }
           $.ajax({
             method: 'GET',
@@ -211,52 +184,81 @@ $(document).ready(function(){
           });
 
         
-        
+          
         recipeData.ref().push(pickedRecipe);
         
-      
-     
+        
+        
           $("#recipeInput").val("");
           $("#wineInput").val("");
           $("#userInput").val("");
-
           
           
-         
+          
+          
           return false
-      
+          
       
       })
       
       recipeData.ref().on("child_added",function(snapshot){
-          var name= snapshot.val().name;
+        var name= snapshot.val().name;
           var wine=snapshot.val().wine;
           var rating= snapshot.val().rating;
   
           
-          
-      
-        
-      
-          $("#recipeBox > tBody").append("<tr><td>"+ name + "</td><td>" + wine + "</td><td>" + rating + "</td><tr>");
       })
+          
+          
+          
+          $("#recipeBox > tBody").append("<tr><td>"+ name + "</td><td>" + wine + "</td><td>" + rating + "</td><tr>");
+        })
         
         
-
+        
     })
-
+    
     $("body").on("click", ".recipe-choice", function() {
       var buttonAsJQueryObject = $(this);
       currentChoice.recipeName = buttonAsJQueryObject.attr("data-recipe-name");
       currentChoice.recipeUrl = buttonAsJQueryObject.attr("data-recipe-url");
       console.log(currentChoice);
     });
-
+    
     $("body").on("click", ".wine-choice", function() {
       var buttonAsJQueryObject = $(this);
       currentChoice.wineName = buttonAsJQueryObject.attr("data-wine-name");
       currentChoice.wineUrl = buttonAsJQueryObject.attr("data-wine-url");
       console.log(currentChoice);
     });
-});
+  
 
+
+
+var config = {
+  apiKey: "AIzaSyAMVMiPlgICX_CJxs5ivIrtv7Z3yrsDyWI",
+  authDomain: "recipebox-9b7a6.firebaseapp.com",
+  databaseURL: "https://recipebox-9b7a6.firebaseio.com",
+  projectId: "recipebox-9b7a6",
+  storageBucket: "recipebox-9b7a6.appspot.com",
+  messagingSenderId: "315061764504"
+};
+firebase.initializeApp(config);
+
+
+var recipeData=firebase.database();
+
+// $("#addChoiceInput").val("");
+$("#addChoiceButton").on("click", function(){
+  var pickedRecipe = $("#recipeInput").val().trim();
+  var pickedWine = $("#wineInput").val().trim();
+  var userRating = $("#userInput").val().trim();
+  
+  
+  var pairedRecipe = {
+    name: pickedRecipe,
+    wine: pickedWine,
+    rating: userRating,
+
+  }
+})
