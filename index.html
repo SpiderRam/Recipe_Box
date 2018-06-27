@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="style.css">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="style.css">
-  <!-- Style to fix the issue of text extending past panel length -->
+  
+    <!-- Style to fix the issue of text extending past panel length -->
   <style>
     .card-body a {
       word-break: break-all;
@@ -20,43 +22,49 @@
       line-height: 1.5;
     }
   </style>
+
 </head>
+
 <body link rel="stylesheet" href="style.css">
     
-  <!-- Main Bootstrap Search -->
-  <div class="container">
-    <!-- Jumbotron for Title -->
+  
+  <div class="container" id="headerBox">
+   
     <div class="jumbotron" style="background-color: white; color:grey;">
+      
       <h1 class="text-center">
-          <img src="images/logo4-01.png"  height="50" width="700">
-          <div></div>
-          <img src="images/space-03.png"  height="10" width="400">
-                
-          <div>
+          
+        <img src="images/logo4-01.png"  height="50" width="700">          
+        <img src="images/space-03.png"  height="10" width="400">
+        <div>
           <img src="images/bottles-01.jpg"  height="150" width="370">
-         <div></div>
-         <img src="images/space-03.png"  height="50" width="400">
-         <div></div>
+          <div></div>
+          <img src="images/space-03.png"  height="50" width="400">
+          <div></div>
           <img src="images/instructions-02.png"  height="150" width="600">
         </div>
+
       </h1>
 
 
-    <div class="row">
+      <div class="row">
 
-      <div class="col-sm-12">
-        <br>
-        <!-- First panel is for handling the search parameters -->
-        <div class="card" id=card>
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-list-alt"></i>   New Recipe</strong>
-          </div>
-          <div class="card card-primary">
+        <div class="col-sm-12"><br>          
+          
+          <div class="card" id=card>
+            
+            <div class="card-header">
+              <strong><i class="fa fa-list-alt"></i>   Saved Recipes</strong>
+            </div>
+            
+            <div class="card card-primary">
+
               <div class="card-heading">
                 <h3 class="card-title"><strong></strong></h3>
               </div>
+
               <div class="card-body">
+
                 <table class="table table-hover" id='recipe-box'>
                   <thead>
                     <tr>
@@ -70,69 +78,75 @@
                   </tbody>
                 </table>
                 
-                
-                    </div>
-                </div>
               </div>
+
             </div>
+
           </div>
-          <div class="btn-group">
-              <button type="button" class="btn btn-danger" id="meatButton">Meats</button>
-              <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="meatButtonDrop">
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <div class="dropdown-menu" >
-                <a class="dropdown-item" href="#">Chicken</a>
-                <a class="dropdown-item" href="#">Pork</a>
-                <a class="dropdown-item" href="#">Fish</a>
-                <a class="dropdown-item" href="#">Tofu</a>
-                <a class="dropdown-item" href="#">Beef</a>
-              
-                <div class="dropdown-divider"></div>
-              </div>
-                  <!-- Here we create the inputs-->
-                
+
+        </div>
+
+      </div>
             
-              </div>
-            </div>
-          </div>
+      <div class="btn-group">
+
+        <button type="button" class="btn btn-danger" id="meatButton">Meats</button>
+        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="meatButtonDrop">
+        <span class="sr-only">Toggle Dropdown</span></button>
+
+        <div class="dropdown-menu">
+
+          <a class="dropdown-item" href="#">Chicken</a>
+          <a class="dropdown-item" href="#">Pork</a>
+          <a class="dropdown-item" href="#">Fish</a>
+          <a class="dropdown-item" href="#">Tofu</a>
+          <a class="dropdown-item" href="#">Beef</a>
+          
+          <div class="dropdown-divider"></div>
+
+        </div>
+                    
+              
+      </div>
+
+    </div>
+
+  </div>
        
-          <div class="card text-center" id="saveFavorites">
-            <div class="card-body">
-              
-              <p class="card-text">Click the titles to research your choices.  Then choose one of each.  Click this button after you have made your choices to save them to your recipe box.</p>
-              <button id="saveChoice"></button>Save your choices!</button>
-            </div>
-            
-          </div>
-          
+  <div class="card text-center" id="saveFavorites">
 
-          
-
+    <div class="card-body">
+      
+      <p class="card-text">Click the titles to research your choices.  Then choose one of each.  Click this button after you have made your choices to save them to your recipe box.</p>
+      <button id="saveChoice">Save to Recipe Box!</button>
+    
+    </div>
+    
+  </div>          
   
-        <div class="row" id="container">
-            
-            <div class="col-sm-5" id="recipes">
-              <div class="card" id="recipeList">
-                
-              </div>
-            </div>
-            <div class="col-sm-6" id="wines">
-              <div class="card" id="wineList">
-                
-              </div>
-            </div>
+  <div class="row" id="container">
+      
+      <div class="col-sm-5" id="recipes">
+        
+        <div class="card" id="recipeList"></div>
+        
+      </div>
+      
+      <div class="col-sm-6" id="wines">
+
+        <div class="card" id="wineList"></div>
+          
+      </div>
+
+  </div>
           
       
-    
-
-
-
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
