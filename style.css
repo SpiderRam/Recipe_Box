@@ -1,17 +1,44 @@
 body {
     background-image: url("images/vineyard2.jpg");
     background-size: auto;
-   
+}
+
+#headerBox {
+    margin-bottom: 20px;
 }
 
 .jumbotron {
-    width: 900px;
+    width: 85%;
     margin: auto;
 }
 
-.form-group {
+.recipeBoxLink {
+    font-size: 12px;
+}
 
+#meatButton, #meatButtonDrop {
+    margin-top: 10px;
+    padding: 10px 25px;
+    background-color: #008B8B;
+    border: gray;
+}
+
+#saveFavorites {
+    width: 30%;
+    margin: 0 auto;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-shadow: 1px 1px #008B8B;
+    border: 1px solid #008B8B;
+    outline-style: solid;
+    outline-color: black;
+}
+
+#saveChoice {
+    padding: 10px 20px;
+    background-color: white;
+    color: #008B8B;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #recipes {
@@ -21,10 +48,11 @@ body {
     border: 3px solid black;
 }
 
-#recipes img {
+#recipes img, #wines img {
     border: 2px solid black;
     width: 100px;
     height:100px;
+    margin-bottom: 5px;
 }
 
 #wines {
@@ -34,25 +62,26 @@ body {
     border: 3px solid black;
 }
 
-#wines img {
-    border: 2px solid black;
-    width: 100px;
-    height: 100px;
+#wine-choice-button, #recipe-choice-button {
+    background-color: #008B8B;
+    margin-left: 10px;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-shadow: 2px 2px gray;
 }
 
-#wines {
+#wine-choice-button:active, #recipe-choice-button:active {
     background-color: white;
-    width: 900px;
-    font-size: 18px;
+    color: #008B8B;
+    text-shadow: 1px 1px gray;
 }
 
-#btn btn-danger {
-    color: cadetblue;
-    
+#recipe-choice-button.active {
+    background-color: white;
+    color: #008B8B;
+    text-shadow: 1px 1px gray;
 }
 
 a {
     display: block;
 }
-
-
