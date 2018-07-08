@@ -22,7 +22,7 @@ This was the first group project assignment for the bootcamp, to utilize the lan
 
 ~Must have user input validation.
 
-And the strecth goals were:
+And the stretch goals were:
 
 ~Utilize Firebase for persistent data storage (consider this basically a requirement).
 
